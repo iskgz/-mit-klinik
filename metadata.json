@@ -1,0 +1,6 @@
+{
+  "name": "Dt. Ümit Narin Diş Kliniği",
+  "description": "Modern tedavi yaklaşımları, vaka analizleri ve kolay randevu planlama sunan profesyonel, güvenilir ve estetik diş hekimliği web platformu.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

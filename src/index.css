@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Poppins", system-ui, -apple-system, sans-serif;
+  --font-display: "Montserrat", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Custom Sage-Teal palette to replace sky-family colors dynamically */
+  --color-sky-50: #f1f6f4; /* extremely soft sage white */
+  --color-sky-105: #e8f0ed; /* very soft sage tint */
+  --color-sky-100: #e3edea; /* classic muted sage background of the target mockup */
+  --color-sky-150: rgba(85, 122, 117, 0.15); /* light sage tint with transparency */
+  --color-sky-200: #c9dad6; /* elegant grayed sage divider */
+  --color-sky-300: #b0c9c3; /* medium-light sage */
+  --color-sky-400: #8daea6; /* muted sage accent */
+  --color-sky-450: #6d938b; /* transitional sage */
+  --color-sky-500: #557a75; /* primary beautiful Sage Pine of the buttons / actions in the mockup */
+  --color-sky-600: #466762; /* dark rich Sage Pine for headers, links, and text elements */
+  --color-sky-700: #38524e; /* deep sage */
+  --color-sky-800: #2a3c39; /* dark charcoal sage */
+  --color-sky-850: #1d2b29; /* slate sage dark text block */
+  --color-sky-900: #1b2624; /* deep container dark background */
+  --color-sky-950: #0f1615; /* intense slate black with a green hint */
+
+  /* Complementary tones for cyan family to align with organic aesthetic */
+  --color-cyan-50: #f1f7f5;
+  --color-cyan-100: #e1ede8;
+  --color-cyan-200: #c5ded3;
+  --color-cyan-300: #9fc1b2;
+  --color-cyan-400: #74a390;
+  --color-cyan-500: #558c73;
+  --color-cyan-600: #43705b;
+  --color-cyan-700: #365949;
+  --color-cyan-800: #253d32;
+  --color-cyan-900: #182720;
+  --color-cyan-950: #0d1612;
+}
+
+/* Custom layout and aesthetics matching Geometric Balance */
+h1, h2, h3, .font-display {
+  font-family: "Montserrat", sans-serif !important;
+  letter-spacing: -0.015em;
+}
+
+/* Smooth custom details */
+input, select, textarea {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Fine-tune scrollbar layout for categories */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
