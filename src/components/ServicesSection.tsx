@@ -211,8 +211,16 @@ export default function ServicesSection({ onSelectTreatmentForAppointment, onSel
               </div>
 
               {/* Icon Holder on the right inside an outline bubble exactly like the mockup */}
-              <div className="w-14 h-14 rounded-2xl border border-sky-300/40 group-hover:bg-sky-500 flex items-center justify-center shrink-0 transition-all duration-300">
-                {renderIcon(treatment.icon)}
+              <div className="w-14 h-14 rounded-2xl border border-sky-300/40 group-hover:bg-sky-500 flex items-center justify-center shrink-0 transition-all duration-300 overflow-hidden">
+                {treatment.id === "cocuk-dis-hekimligi" ? (
+                  <img
+                    src="/child-dentistry.png"
+                    alt="Çocuk Diş Hekimliği"
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  renderIcon(treatment.icon)
+                )}
               </div>
             </motion.div>
           ))}
