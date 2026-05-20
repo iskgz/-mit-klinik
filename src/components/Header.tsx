@@ -42,12 +42,12 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
       id="main-header"
       className={`fixed top-4 left-4 right-4 z-50 transition-all duration-300 rounded-full ${
         isScrolled
-          ? "bg-white/80 backdrop-blur-md shadow-md border border-white/50 py-2 px-6 max-w-6xl mx-auto"
-          : "bg-white/45 backdrop-blur-sm border border-white/30 py-3.5 px-6 max-w-6xl mx-auto"
+          ? "bg-white/80 backdrop-blur-md shadow-md border border-white/50 py-2 px-4 sm:px-6 max-w-6xl mx-auto"
+          : "bg-white/45 backdrop-blur-sm border border-white/30 py-3 px-4 sm:py-3.5 sm:px-6 max-w-6xl mx-auto"
       }`}
     >
       <div className="w-full">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-3">
           <button
             onClick={() => handleLinkClick("hero")}
             className="flex items-center text-left focus:outline-none cursor-pointer group shrink-0"
@@ -56,7 +56,7 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
             <img
               src="/logo-umit-narin.svg"
               alt="DT. Ümit Narin Diş Hekimi"
-              className="h-10 sm:h-12 w-auto max-w-[220px] sm:max-w-[320px] object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+              className="h-9 sm:h-12 w-auto max-w-[180px] sm:max-w-[320px] object-contain transition-transform duration-300 group-hover:scale-[1.02]"
             />
           </button>
 
@@ -103,20 +103,14 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
             </button>
           </div>
 
-          <div className="flex lg:hidden items-center space-x-2">
-            <button
-              onClick={() => handleLinkClick("randevu")}
-              className="sm:hidden w-9 h-9 rounded-lg bg-sky-50 flex items-center justify-center text-sky-600 focus:outline-none"
-              title="Randevu"
-            >
-              <Calendar className="w-4.5 h-4.5" />
-            </button>
+          <div className="flex lg:hidden items-center">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-lg text-slate-600 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-sky-500"
+              className="w-10 h-10 rounded-full bg-white/70 text-slate-700 hover:bg-sky-50 hover:text-sky-700 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-sky-500 shadow-sm"
               aria-label="Menü"
+              aria-expanded={isMobileMenuOpen}
             >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
@@ -129,36 +123,39 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="lg:hidden bg-white border-b border-slate-100 shadow-lg overflow-hidden"
+            className="lg:hidden absolute left-0 right-0 top-full mt-3 overflow-hidden rounded-3xl bg-white/95 backdrop-blur-md border border-sky-100 shadow-xl"
           >
-            <div className="px-4 pt-2 pb-6 space-y-1">
-              {navLinks.map((link) => (
-                <button
-                  key={link.id}
-                  onClick={() => handleLinkClick(link.id)}
-                  className={`block w-full text-left px-4 py-2.5 text-base font-semibold rounded-xl transition-colors ${
-                    activeSection === link.id
-                      ? "bg-sky-50 text-sky-700"
-                      : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
-                  }`}
-                >
-                  {link.label}
-                </button>
-              ))}
-              <div className="pt-4 pb-2 border-t border-slate-100 flex flex-col sm:flex-row gap-3 sm:items-center justify-between">
+            <div className="p-4">
+              <div className="grid grid-cols-2 gap-2">
+                {navLinks.map((link) => (
+                  <button
+                    key={link.id}
+                    onClick={() => handleLinkClick(link.id)}
+                    className={`min-h-11 px-3 py-2 text-left text-sm font-bold rounded-2xl transition-colors ${
+                      activeSection === link.id
+                        ? "bg-sky-50 text-sky-700"
+                        : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+                    }`}
+                  >
+                    {link.label}
+                  </button>
+                ))}
+              </div>
+
+              <div className="mt-4 pt-4 border-t border-slate-100 grid grid-cols-[56px_1fr] gap-3">
                 <a
                   href={whatsappUrl}
                   target="_blank"
                   rel="noreferrer"
                   aria-label="WhatsApp ile iletişime geç"
                   title="WhatsApp ile iletişime geç"
-                  className="w-11 h-11 flex items-center justify-center text-slate-700 rounded-xl hover:text-sky-600 hover:bg-sky-50"
+                  className="w-14 h-12 flex items-center justify-center text-slate-700 rounded-2xl bg-slate-50 hover:text-sky-600 hover:bg-sky-50"
                 >
                   <Phone className="w-4 h-4 text-sky-500" />
                 </a>
                 <button
                   onClick={() => handleLinkClick("randevu")}
-                  className="w-full flex items-center justify-center space-x-2 bg-sky-600 hover:bg-sky-700 text-white py-3 rounded-xl font-bold text-sm shadow-md"
+                  className="w-full flex items-center justify-center space-x-2 bg-sky-600 hover:bg-sky-700 text-white py-3 rounded-2xl font-bold text-sm shadow-md"
                 >
                   <Calendar className="w-4.5 h-4.5" />
                   <span>Randevu Talebi Oluştur</span>

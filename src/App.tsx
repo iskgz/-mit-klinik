@@ -201,7 +201,7 @@ export default function App() {
           </div>
 
           {/* Bottom Custom Navigation tabs mimic the mockup */}
-          <div className="mt-16 border-t border-sky-200/50 pt-8 w-full">
+          <div className="mt-16 border-t border-sky-200/50 pt-8 w-full hidden md:block">
             <div className="flex flex-wrap items-center justify-center lg:justify-between gap-4 text-xs font-bold tracking-widest text-sky-700/90 uppercase font-display">
               
               <button
