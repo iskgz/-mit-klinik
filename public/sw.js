@@ -1,4 +1,4 @@
-const CACHE_NAME = "melis-saygin-klinik-v1";
+const CACHE_NAME = "melis-saygin-klinik-v2";
 
 const APP_SHELL = [
   "/",
@@ -31,19 +31,41 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      if (cachedResponse) {
-        return cachedResponse;
-      }
-
-      return fetch(event.request)
+  if (event.request.mode === "navigate") {
+    event.respondWith(
+      fetch(event.request)
         .then((networkResponse) => {
           const responseClone = networkResponse.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseClone));
+          caches.open(CACHE_NAME).then((cache) => cache.put("/index.html", responseClone));
           return networkResponse;
         })
-        .catch(() => caches.match("/index.html"));
-    })
+        .catch(() => caches.match("/index.html"))
+    );
+    return;
+  }
+
+  event.respondWith(
+    fetch(event.request)
+      .then((networkResponse) => {
+        if (networkResponse.ok) {
+          const responseClone = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseClone));
+        }
+
+        return networkResponse;
+      })
+      .catch(() =>
+        caches.match(event.request).then((cachedResponse) => {
+          if (cachedResponse) {
+            return cachedResponse;
+          }
+
+          if (event.request.destination === "document") {
+            return caches.match("/index.html");
+          }
+
+          return Response.error();
+        })
+      )
   );
 });

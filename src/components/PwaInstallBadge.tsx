@@ -53,7 +53,7 @@ export default function PwaInstallBadge() {
   }
 
   return (
-    <div className="fixed bottom-4 left-4 z-40 max-w-[calc(100vw-2rem)]">
+    <div className="fixed bottom-4 left-4 z-40 max-w-[calc(100vw-2rem)] [bottom:calc(1rem+env(safe-area-inset-bottom))] [left:calc(1rem+env(safe-area-inset-left))]">
       {showGuide && (
         <div className="mb-3 w-[min(22rem,calc(100vw-2rem))] rounded-3xl border border-sky-100 bg-white/95 p-4 text-slate-700 shadow-xl shadow-sky-900/10 backdrop-blur-md">
           <div className="flex items-start justify-between gap-3">
