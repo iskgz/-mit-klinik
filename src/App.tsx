@@ -123,23 +123,23 @@ export default function App() {
           {/* Hero Section */}
           <section
             id="hero"
-        className="pt-28 pb-16 md:pt-36 md:pb-24 bg-sky-100 relative overflow-hidden flex flex-col justify-between"
+        className="pt-28 pb-16 md:pt-32 xl:pt-36 md:pb-24 bg-sky-100 relative overflow-hidden flex flex-col justify-between"
       >
         {/* Soft abstract shape mapping the aesthetic layouts of the target */}
         <div className="absolute top-0 right-0 w-1/3 h-full bg-white/10 pointer-events-none" />
         <div className="absolute top-1/2 -left-48 w-96 h-96 bg-sky-50/50 rounded-full filter blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex-1 flex flex-col justify-center">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 xl:grid-cols-12 gap-10 xl:gap-12 items-center">
             
             {/* Left Hero Texts */}
-            <div className="lg:col-span-6 space-y-6 md:space-y-8 text-center lg:text-left flex flex-col items-center lg:items-start select-none">
+            <div className="xl:col-span-6 space-y-6 md:space-y-8 text-center xl:text-left flex flex-col items-center xl:items-start select-none">
               
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-5xl sm:text-6xl md:text-7xl font-sans font-bold text-slate-900 tracking-tight leading-[1.08] text-left"
+                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-sans font-bold text-slate-900 tracking-tight leading-[1.08] text-center xl:text-left"
               >
                 Aydınlık <br />
                 Gülüşünüz <br />
@@ -164,12 +164,12 @@ export default function App() {
             </div>
 
             {/* Right Hero Visual elements - Confident patient/clinician with sage clean background */}
-            <div className="lg:col-span-6 relative flex justify-center lg:justify-end">
+            <div className="xl:col-span-6 relative flex justify-center xl:justify-end">
               <motion.div
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.7, delay: 0.2 }}
-                className="relative w-full max-w-sm aspect-[4/5] overflow-visible"
+                className="relative w-full max-w-[320px] sm:max-w-sm aspect-[4/5] overflow-visible"
               >
                 {/* Clean matching background rotating decorative plate */}
                 <div className="absolute inset-0 bg-sky-200/30 rounded-[48px] -rotate-3 transition duration-500" />
