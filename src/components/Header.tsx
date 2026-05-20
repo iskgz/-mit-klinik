@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Sparkles, Menu, X, Calendar, Phone } from "lucide-react";
+import { Menu, X, Calendar, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 interface HeaderProps {
@@ -14,11 +14,7 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 20);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -53,25 +49,18 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
     >
       <div className="w-full">
         <div className="flex items-center justify-between">
-          {/* Logo */}
           <button
             onClick={() => handleLinkClick("hero")}
-            className="flex items-center space-x-2.5 text-left focus:outline-none cursor-pointer group"
+            className="flex items-center text-left focus:outline-none cursor-pointer group shrink-0"
+            aria-label="Ana sayfaya dön"
           >
-            <div className="w-9 h-9 rounded-full bg-sky-500 flex items-center justify-center text-white shadow-sm group-hover:bg-sky-600 transition-colors duration-300">
-              <Sparkles className="w-4.5 h-4.5" />
-            </div>
-            <div>
-              <span className="block font-sans font-extrabold text-sm tracking-tight text-slate-900 group-hover:text-sky-600 transition-colors duration-300">
-                DT. ÜMİT NARİN
-              </span>
-              <span className="block font-mono text-[9px] text-sky-600 font-bold tracking-widest uppercase">
-                KLİNİK HEKİMİ
-              </span>
-            </div>
+            <img
+              src="/logo-umit-narin.svg"
+              alt="DT. Ümit Narin Diş Hekimi"
+              className="h-10 sm:h-12 w-auto max-w-[190px] sm:max-w-[250px] object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+            />
           </button>
 
-          {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-0.5">
             {navLinks.map((link) => (
               <button
@@ -95,7 +84,6 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
             ))}
           </nav>
 
-          {/* CTA & Phone Buttons */}
           <div className="hidden sm:flex items-center space-x-3">
             <a
               href={whatsappUrl}
@@ -116,7 +104,6 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="flex lg:hidden items-center space-x-2">
             <button
               onClick={() => handleLinkClick("randevu")}
@@ -136,7 +123,6 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
