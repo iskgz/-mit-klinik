@@ -189,7 +189,7 @@ export default function App() {
                 {/* Overlapping Main Frame with large curvy corners */}
                 <div className="absolute inset-1 rounded-[48px] overflow-hidden bg-white border-4 border-white shadow-xl group">
                   <img
-                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800"
+                    src="/doctor-hero.jpeg"
                     alt="Sağlıklı Diş Tedavisi ve Gülüş Tasarımı"
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover group-hover:scale-[1.03] transition duration-700 object-top"
