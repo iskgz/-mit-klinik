@@ -13,7 +13,6 @@ import FaqSection from "./components/FaqSection";
 import AppointmentForm from "./components/AppointmentForm";
 import Footer from "./components/Footer";
 import { 
-  Sparkles, 
   Smile, 
   CalendarCheck, 
   ShieldCheck, 
@@ -136,17 +135,6 @@ export default function App() {
             {/* Left Hero Texts */}
             <div className="lg:col-span-6 space-y-6 md:space-y-8 text-center lg:text-left flex flex-col items-center lg:items-start select-none">
               
-              {/* Target Styled Pill Tag */}
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="inline-flex items-center space-x-2 bg-white/40 backdrop-blur-sm border border-white/60 px-4 py-1.5 rounded-full text-sky-800 text-[11px] font-bold tracking-widest uppercase font-display"
-              >
-                <Sparkles className="w-3.5 h-3.5 text-sky-600 animate-pulse" />
-                <span>PREMIUM DENTAL ESTETİK</span>
-              </motion.div>
-
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -207,10 +195,6 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Sparkling decorative bubble */}
-                <div className="absolute -top-3 -right-3 w-12 h-12 rounded-full bg-white border border-sky-100 flex items-center justify-center shadow-md">
-                  <Sparkles className="w-5 h-5 text-sky-500 animate-pulse" />
-                </div>
               </motion.div>
             </div>
 
