@@ -30,6 +30,16 @@ export default function ServicesSection({ onSelectTreatmentForAppointment, onSel
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<"all" | "estetik" | "cerrahi" | "genel">("all");
   const [activeDetailTreatment, setActiveDetailTreatment] = useState<Treatment | null>(null);
+  const treatmentIconImages: Record<string, string> = {
+    "cocuk-dis-hekimligi": "/child-dentistry.png",
+    "dis-beyazlatma": "/whitening-icon.png",
+    "gulus-tasarimi": "/smile-design-icon.png",
+    "implant-tedavisi": "/implant-icon.png",
+    "kanal-tedavisi": "/root-canal-icon.png",
+    "ortodonti": "/orthodontics-icon.png",
+    "seffaf-plak-tedavisi": "/clear-aligner-icon.png",
+    "zirkonyum-kaplama": "/crown-icon.png",
+  };
 
   // Map icon strings to Lucide components
   const renderIcon = (iconName: string) => {
@@ -212,11 +222,11 @@ export default function ServicesSection({ onSelectTreatmentForAppointment, onSel
 
               {/* Icon Holder on the right inside an outline bubble exactly like the mockup */}
               <div className="w-14 h-14 rounded-2xl border border-sky-300/40 group-hover:bg-sky-500 flex items-center justify-center shrink-0 transition-all duration-300 overflow-hidden">
-                {treatment.id === "cocuk-dis-hekimligi" ? (
+                {treatmentIconImages[treatment.id] ? (
                   <img
-                    src="/child-dentistry.png"
-                    alt="Çocuk Diş Hekimliği"
-                    className="w-full h-full object-cover"
+                    src={treatmentIconImages[treatment.id]}
+                    alt={treatment.name}
+                    className="w-12 h-12 object-contain object-center"
                   />
                 ) : (
                   renderIcon(treatment.icon)

@@ -256,9 +256,8 @@ export default function App() {
               {/* Primary Curvy Medical/Dental Action Image */}
               <div className="relative w-full max-w-[280px] aspect-[4/5] rounded-tl-[80px] rounded-br-[80px] rounded-tr-[24px] rounded-bl-[24px] overflow-hidden shadow-lg border border-sky-100/50">
                 <img
-                  src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=600"
-                  alt="Modern Tedavi Süreci ve Analiz"
-                  referrerPolicy="no-referrer"
+                  src="/about/about-treatment-1.jpeg"
+                  alt="Dt. Ümit Narin klinik tedavi süreci"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -266,9 +265,8 @@ export default function App() {
               {/* Offset Secondary Curvy Portrait overlapping style */}
               <div className="relative w-full max-w-[200px] aspect-[3/4] rounded-tr-[60px] rounded-bl-[60px] rounded-tl-[16px] rounded-br-[16px] overflow-hidden shadow-md border border-white -mt-8 sm:mt-12 bg-sky-50">
                 <img
-                  src="https://images.unsplash.com/photo-1579684389782-64d84b5e9053?auto=format&fit=crop&q=80&w=600"
-                  alt={`${DENTIST_INFO.name} Hasta Muayenesi`}
-                  referrerPolicy="no-referrer"
+                  src="/about/about-treatment-2.jpeg"
+                  alt={`${DENTIST_INFO.name} hasta muayenesi`}
                   className="w-full h-full object-cover"
                 />
               </div>

@@ -79,18 +79,16 @@ export default function ClinicGallery() {
             <div className="lg:col-span-7 relative aspect-video rounded-2xl overflow-hidden bg-slate-900 border-4 border-white shadow-lg group cursor-pointer" onClick={togglePlay}>
               <video
                 id="clinic-promo-video"
-                src="https://assets.mixkit.co/videos/preview/mixkit-dentist-explaining-treatment-on-mouth-model-to-female-patient-41549-large.mp4"
+                src="/videos/klinik-tanitim.mp4"
                 loop
                 muted={isMuted}
                 autoPlay
+                playsInline
                 className="w-full h-full object-cover"
               />
               
               {/* Overlay with details */}
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-6">
-                <span className="inline-block self-start font-mono text-[9px] text-sky-800 bg-white/90 px-2.5 py-1 rounded-full font-bold uppercase tracking-widest mb-2">
-                  CANLI İZLE • KLİNİK İÇİ TANITIM
-                </span>
                 <p className="text-white text-xs md:text-sm font-medium opacity-90">
                   Dt. Ümit Narin ile dijital süreçler ve sterile giden her aşamanın şeffaf sunumu.
                 </p>

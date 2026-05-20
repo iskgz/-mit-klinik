@@ -3,6 +3,7 @@ import { Treatment } from "../types";
 import { sendAppointmentEmail } from "../lib/sendAppointmentEmail";
 import { 
   ArrowLeft, 
+  ChevronLeft,
   Calendar, 
   Clock, 
   ShieldCheck, 
@@ -29,6 +30,15 @@ const TREATMENT_IMAGES: Record<string, string> = {
   "cocuk-dis-hekimligi": "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&q=80&w=600"
 };
 
+const TREATMENT_GALLERIES: Record<string, string[]> = {
+  "implant-tedavisi": [
+    "/treatments/implant/implant-gallery-1.jpg",
+    "/treatments/implant/implant-gallery-2.jpg",
+    "/treatments/implant/implant-gallery-3.jpg",
+    "/treatments/implant/implant-gallery-4.jpg",
+  ],
+};
+
 interface TreatmentDetailViewProps {
   treatment: Treatment;
   onBack: () => void;
@@ -37,6 +47,7 @@ interface TreatmentDetailViewProps {
 
 export default function TreatmentDetailView({ treatment, onBack, onBookAppointment }: TreatmentDetailViewProps) {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+  const [activeGalleryIndex, setActiveGalleryIndex] = useState(0);
 
   // Form states for the dedicated sidebar booking card
   const [formData, setFormData] = useState({
@@ -54,7 +65,21 @@ export default function TreatmentDetailView({ treatment, onBack, onBookAppointme
   // Scroll to top when treatment changes
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+    setActiveGalleryIndex(0);
   }, [treatment]);
+
+  const galleryImages = TREATMENT_GALLERIES[treatment.id] || [TREATMENT_IMAGES[treatment.id] || "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=600"];
+  const activeTreatmentImage = galleryImages[activeGalleryIndex] || galleryImages[0];
+  const hasGallery = galleryImages.length > 1;
+
+  const goToGalleryImage = (direction: "prev" | "next") => {
+    setActiveGalleryIndex((current) => {
+      if (direction === "next") {
+        return current === galleryImages.length - 1 ? 0 : current + 1;
+      }
+      return current === 0 ? galleryImages.length - 1 : current - 1;
+    });
+  };
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -175,12 +200,45 @@ export default function TreatmentDetailView({ treatment, onBack, onBookAppointme
             <div className="lg:col-span-5 flex justify-center w-full">
               <div className="relative w-full max-w-[390px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-white/15 bg-slate-950/20">
                 <img 
-                  src={TREATMENT_IMAGES[treatment.id] || "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=600"}
+                  src={activeTreatmentImage}
                   alt={treatment.name}
                   className="w-full h-full object-cover select-none hover:scale-105 transition-transform duration-700 pointer-events-none"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent pointer-events-none" />
+                {hasGallery && (
+                  <>
+                    <button
+                      type="button"
+                      onClick={() => goToGalleryImage("prev")}
+                      className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 text-slate-900 flex items-center justify-center shadow-lg hover:bg-white hover:scale-105 transition-all cursor-pointer"
+                      aria-label="Önceki fotoğraf"
+                    >
+                      <ChevronLeft className="w-5 h-5" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => goToGalleryImage("next")}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 text-slate-900 flex items-center justify-center shadow-lg hover:bg-white hover:scale-105 transition-all cursor-pointer"
+                      aria-label="Sonraki fotoğraf"
+                    >
+                      <ChevronRight className="w-5 h-5" />
+                    </button>
+                    <div className="absolute bottom-3 left-0 right-0 flex items-center justify-center gap-1.5">
+                      {galleryImages.map((_, index) => (
+                        <button
+                          key={index}
+                          type="button"
+                          onClick={() => setActiveGalleryIndex(index)}
+                          className={`h-2 rounded-full transition-all cursor-pointer ${
+                            activeGalleryIndex === index ? "w-6 bg-white" : "w-2 bg-white/50 hover:bg-white/80"
+                          }`}
+                          aria-label={`${index + 1}. fotoğrafı göster`}
+                        />
+                      ))}
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           </div>
