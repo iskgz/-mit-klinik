@@ -1,7 +1,7 @@
 {
-  "name": "Uzm. Dt. Melis Saygin Dis Klinigi",
-  "short_name": "Melis Saygin",
-  "description": "Uzm. Dt. Melis Saygin Dis Klinigi randevu ve tedavi bilgilendirme sitesi.",
+  "name": "DT. ÜMİT NARİN",
+  "short_name": "ÜMİT NARİN",
+  "description": "DT. Ümit Narin Diş Hekimi randevu ve tedavi bilgilendirme sitesi.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
