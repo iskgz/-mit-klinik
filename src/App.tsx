@@ -12,6 +12,7 @@ import BlogSection from "./components/BlogSection";
 import FaqSection from "./components/FaqSection";
 import AppointmentForm from "./components/AppointmentForm";
 import Footer from "./components/Footer";
+import PwaInstallBadge from "./components/PwaInstallBadge";
 import { 
   Smile, 
   CalendarCheck, 
@@ -88,6 +89,7 @@ export default function App() {
       
       {/* Header element */}
       <Header onNavigate={navigateToSection} activeSection={activeSection} />
+      <PwaInstallBadge />
 
       {selectedTreatment ? (
         <TreatmentDetailView

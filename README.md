@@ -15,6 +15,12 @@ npm run dev
 npm run build
 ```
 
+## PWA
+
+Site PWA olarak hazirlandi. `public/manifest.webmanifest` uygulama bilgilerini,
+`public/sw.js` ise temel sayfa ve gorseller icin cevrimdisi onbellegi yonetir.
+HTTPS uzerinde yayinlandiginda telefon ekranina uygulama gibi eklenebilir.
+
 Netlify build ayarlari:
 
 ```text
