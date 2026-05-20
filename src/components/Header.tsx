@@ -133,7 +133,7 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
             ))}
           </nav>
 
-          <div className="hidden sm:flex items-center space-x-3">
+          <div className="hidden md:flex items-center space-x-2 lg:space-x-3">
             <a
               href={whatsappUrl}
               target="_blank"
@@ -146,7 +146,7 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
             </a>
             <button
               onClick={() => handleLinkClick("randevu")}
-              className="flex items-center space-x-1.5 bg-sky-500 hover:bg-sky-600 text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest shadow shadow-sky-500/10 transition-all duration-300 hover:scale-[1.02] cursor-pointer"
+              className="flex items-center space-x-1.5 bg-sky-500 hover:bg-sky-600 text-white px-4 lg:px-5 py-2.5 rounded-full text-[11px] lg:text-xs font-bold uppercase tracking-widest shadow shadow-sky-500/10 transition-all duration-300 hover:scale-[1.02] cursor-pointer"
             >
               <Calendar className="w-3.5 h-3.5" />
               <span>Randevu Al</span>

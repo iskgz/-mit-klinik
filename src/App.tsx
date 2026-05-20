@@ -125,14 +125,14 @@ export default function App() {
           {/* Hero Section */}
           <section
             id="hero"
-        className="pt-28 pb-16 md:pt-32 xl:pt-36 md:pb-24 bg-sky-100 relative overflow-hidden flex flex-col justify-between"
+        className="pt-24 pb-12 sm:pt-28 sm:pb-14 md:pt-32 xl:pt-36 md:pb-20 xl:pb-24 bg-sky-100 relative overflow-hidden flex flex-col justify-between"
       >
         {/* Soft abstract shape mapping the aesthetic layouts of the target */}
         <div className="absolute top-0 right-0 w-1/3 h-full bg-white/10 pointer-events-none" />
         <div className="absolute top-1/2 -left-48 w-96 h-96 bg-sky-50/50 rounded-full filter blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex-1 flex flex-col justify-center">
-          <div className="grid grid-cols-1 xl:grid-cols-12 gap-10 xl:gap-12 items-center">
+          <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 sm:gap-9 md:gap-10 xl:gap-12 items-center">
             
             {/* Left Hero Texts */}
             <div className="xl:col-span-6 space-y-6 md:space-y-8 text-center xl:text-left flex flex-col items-center xl:items-start select-none">
@@ -141,7 +141,7 @@ export default function App() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-sans font-bold text-slate-900 tracking-tight leading-[1.08] text-center xl:text-left"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-sans font-bold text-slate-900 tracking-tight leading-[1.08] text-center xl:text-left"
               >
                 Aydınlık <br />
                 Gülüşünüz <br />
@@ -153,11 +153,11 @@ export default function App() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="pt-2 text-left w-full"
+                className="pt-1 sm:pt-2 text-center xl:text-left w-full"
               >
                 <button
                   onClick={() => navigateToSection("randevu")}
-                  className="bg-sky-500 hover:bg-sky-600 text-white font-sans font-semibold px-8 py-4 rounded-full text-sm inline-flex items-center space-x-2.5 shadow-lg shadow-sky-600/10 hover:shadow-sky-600/20 transition-all duration-300 hover:scale-[1.03] cursor-pointer"
+                  className="bg-sky-500 hover:bg-sky-600 text-white font-sans font-semibold px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm inline-flex items-center space-x-2.5 shadow-lg shadow-sky-600/10 hover:shadow-sky-600/20 transition-all duration-300 hover:scale-[1.03] cursor-pointer"
                 >
                   <span>Hemen Randevu Al</span>
                   <ChevronRight className="w-4.5 h-4.5" />
@@ -171,7 +171,7 @@ export default function App() {
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.7, delay: 0.2 }}
-                className="relative w-full max-w-[320px] sm:max-w-sm aspect-[4/5] overflow-visible"
+                className="relative w-full max-w-[280px] sm:max-w-[320px] md:max-w-sm aspect-[4/5] overflow-visible"
               >
                 {/* Clean matching background rotating decorative plate */}
                 <div className="absolute inset-0 bg-sky-200/30 rounded-[48px] -rotate-3 transition duration-500" />
@@ -186,13 +186,13 @@ export default function App() {
                   />
                   
                   {/* Glassmorphism float overlay badge inside hero */}
-                  <div className="absolute bottom-6 left-6 right-6 bg-white/80 backdrop-blur-md p-4 rounded-3xl shadow-lg border border-white/50 flex items-center space-x-3 text-slate-805">
-                    <div className="w-10 h-10 rounded-2xl bg-sky-500 flex items-center justify-center text-white font-bold text-sm shrink-0">
+                  <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 bg-white/80 backdrop-blur-md p-3 sm:p-4 rounded-3xl shadow-lg border border-white/50 flex items-center space-x-3 text-slate-805">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-sky-500 flex items-center justify-center text-white font-bold text-xs sm:text-sm shrink-0">
                       DT
                     </div>
                     <div>
                       <span className="block text-[9px] font-extrabold text-sky-600 uppercase tracking-widest font-mono">KLİNİK UZMANI</span>
-                      <span className="block text-sm font-bold text-slate-900 leading-tight">{DENTIST_INFO.name}</span>
+                      <span className="block text-xs sm:text-sm font-bold text-slate-900 leading-tight">{DENTIST_INFO.name}</span>
                     </div>
                   </div>
                 </div>
