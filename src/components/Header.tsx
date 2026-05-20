@@ -30,7 +30,6 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
     { id: "yorumlar", label: "Yorumlar" },
     { id: "blog", label: "Blog" },
     { id: "sss", label: "S.S.S." },
-    { id: "iletisim", label: "İletişim" },
   ];
 
   const handleLinkClick = (id: string) => {
