@@ -57,7 +57,7 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
             <img
               src="/logo-umit-narin.svg"
               alt="DT. Ümit Narin Diş Hekimi"
-              className="h-10 sm:h-12 w-auto max-w-[190px] sm:max-w-[250px] object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+              className="h-10 sm:h-12 w-auto max-w-[220px] sm:max-w-[320px] object-contain transition-transform duration-300 group-hover:scale-[1.02]"
             />
           </button>
 

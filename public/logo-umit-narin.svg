@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 170" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 170" role="img" aria-labelledby="title desc">
   <title id="title">DT. Ümit Narin Diş Hekimi</title>
   <desc id="desc">Dikey çizgi ile ayrılmış DT. Ümit Narin Diş Hekimi logosu</desc>
   <defs>
-    <linearGradient id="nameGradient" x1="40" y1="75" x2="410" y2="125" gradientUnits="userSpaceOnUse">
+    <linearGradient id="nameGradient" x1="40" y1="75" x2="600" y2="125" gradientUnits="userSpaceOnUse">
       <stop stop-color="#075985"/>
       <stop offset="1" stop-color="#0f5162"/>
     </linearGradient>
