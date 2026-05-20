@@ -132,16 +132,16 @@ export default function App() {
         <div className="absolute top-1/2 -left-48 w-96 h-96 bg-sky-50/50 rounded-full filter blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex-1 flex flex-col justify-center">
-          <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 sm:gap-9 md:gap-10 xl:gap-12 items-center">
+          <div className="grid grid-cols-[minmax(0,1fr)_minmax(132px,0.9fr)] md:grid-cols-12 gap-4 sm:gap-6 md:gap-8 xl:gap-12 items-center">
             
             {/* Left Hero Texts */}
-            <div className="xl:col-span-6 space-y-6 md:space-y-8 text-center xl:text-left flex flex-col items-center xl:items-start select-none">
+            <div className="md:col-span-6 space-y-3 sm:space-y-5 md:space-y-7 xl:space-y-8 text-left flex flex-col items-start select-none">
               
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-sans font-bold text-slate-900 tracking-tight leading-[1.08] text-center xl:text-left"
+                className="text-[clamp(1.55rem,7vw,4.5rem)] font-sans font-bold text-slate-900 tracking-tight leading-[1.08] text-left"
               >
                 Aydınlık <br />
                 Gülüşünüz <br />
@@ -153,11 +153,11 @@ export default function App() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="pt-1 sm:pt-2 text-center xl:text-left w-full"
+                className="pt-1 sm:pt-2 text-left w-full"
               >
                 <button
                   onClick={() => navigateToSection("randevu")}
-                  className="bg-sky-500 hover:bg-sky-600 text-white font-sans font-semibold px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm inline-flex items-center space-x-2.5 shadow-lg shadow-sky-600/10 hover:shadow-sky-600/20 transition-all duration-300 hover:scale-[1.03] cursor-pointer"
+                  className="bg-sky-500 hover:bg-sky-600 text-white font-sans font-semibold px-4 sm:px-6 md:px-8 py-2.5 sm:py-3.5 md:py-4 rounded-full text-[10px] sm:text-xs md:text-sm inline-flex items-center space-x-1.5 sm:space-x-2.5 shadow-lg shadow-sky-600/10 hover:shadow-sky-600/20 transition-all duration-300 hover:scale-[1.03] cursor-pointer"
                 >
                   <span>Hemen Randevu Al</span>
                   <ChevronRight className="w-4.5 h-4.5" />
@@ -166,18 +166,18 @@ export default function App() {
             </div>
 
             {/* Right Hero Visual elements - Confident patient/clinician with sage clean background */}
-            <div className="xl:col-span-6 relative flex justify-center xl:justify-end">
+            <div className="md:col-span-6 relative flex justify-end">
               <motion.div
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.7, delay: 0.2 }}
-                className="relative w-full max-w-[280px] sm:max-w-[320px] md:max-w-sm aspect-[4/5] overflow-visible"
+                className="relative w-full max-w-[clamp(132px,42vw,384px)] aspect-[4/5] overflow-visible"
               >
                 {/* Clean matching background rotating decorative plate */}
-                <div className="absolute inset-0 bg-sky-200/30 rounded-[48px] -rotate-3 transition duration-500" />
+                <div className="absolute inset-0 bg-sky-200/30 rounded-[clamp(24px,5vw,48px)] -rotate-3 transition duration-500" />
                 
                 {/* Overlapping Main Frame with large curvy corners */}
-                <div className="absolute inset-1 rounded-[48px] overflow-hidden bg-white border-4 border-white shadow-xl group">
+                <div className="absolute inset-1 rounded-[clamp(24px,5vw,48px)] overflow-hidden bg-white border-2 sm:border-4 border-white shadow-xl group">
                   <img
                     src="/doctor-hero.jpeg"
                     alt="Sağlıklı Diş Tedavisi ve Gülüş Tasarımı"
@@ -186,13 +186,13 @@ export default function App() {
                   />
                   
                   {/* Glassmorphism float overlay badge inside hero */}
-                  <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 bg-white/80 backdrop-blur-md p-3 sm:p-4 rounded-3xl shadow-lg border border-white/50 flex items-center space-x-3 text-slate-805">
-                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-sky-500 flex items-center justify-center text-white font-bold text-xs sm:text-sm shrink-0">
+                  <div className="absolute bottom-2.5 sm:bottom-4 md:bottom-6 left-2.5 sm:left-4 md:left-6 right-2.5 sm:right-4 md:right-6 bg-white/80 backdrop-blur-md p-2 sm:p-3 md:p-4 rounded-2xl sm:rounded-3xl shadow-lg border border-white/50 flex items-center space-x-2 sm:space-x-3 text-slate-805">
+                    <div className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-xl sm:rounded-2xl bg-sky-500 flex items-center justify-center text-white font-bold text-[10px] sm:text-xs md:text-sm shrink-0">
                       DT
                     </div>
                     <div>
-                      <span className="block text-[9px] font-extrabold text-sky-600 uppercase tracking-widest font-mono">KLİNİK UZMANI</span>
-                      <span className="block text-xs sm:text-sm font-bold text-slate-900 leading-tight">{DENTIST_INFO.name}</span>
+                      <span className="block text-[6px] sm:text-[8px] md:text-[9px] font-extrabold text-sky-600 uppercase tracking-widest font-mono">KLİNİK UZMANI</span>
+                      <span className="block text-[9px] sm:text-xs md:text-sm font-bold text-slate-900 leading-tight">{DENTIST_INFO.name}</span>
                     </div>
                   </div>
                 </div>
@@ -253,10 +253,10 @@ export default function App() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             {/* Left bio visual asymmetric collage layout mimic */}
-            <div className="lg:col-span-5 relative flex flex-col sm:flex-row gap-4 items-center justify-center">
+            <div className="lg:col-span-5 relative flex flex-row gap-3 sm:gap-4 items-center justify-center">
               
               {/* Primary Curvy Medical/Dental Action Image */}
-              <div className="relative w-full max-w-[280px] aspect-[4/5] rounded-tl-[80px] rounded-br-[80px] rounded-tr-[24px] rounded-bl-[24px] overflow-hidden shadow-lg border border-sky-100/50">
+              <div className="relative w-full max-w-[min(52vw,280px)] aspect-[4/5] rounded-tl-[clamp(44px,12vw,80px)] rounded-br-[clamp(44px,12vw,80px)] rounded-tr-[24px] rounded-bl-[24px] overflow-hidden shadow-lg border border-sky-100/50">
                 <img
                   src="/about/about-treatment-1.jpeg"
                   alt="Dt. Ümit Narin klinik tedavi süreci"
@@ -265,7 +265,7 @@ export default function App() {
               </div>
 
               {/* Offset Secondary Curvy Portrait overlapping style */}
-              <div className="relative w-full max-w-[200px] aspect-[3/4] rounded-tr-[60px] rounded-bl-[60px] rounded-tl-[16px] rounded-br-[16px] overflow-hidden shadow-md border border-white -mt-8 sm:mt-12 bg-sky-50">
+              <div className="relative w-full max-w-[min(38vw,200px)] aspect-[3/4] rounded-tr-[clamp(36px,10vw,60px)] rounded-bl-[clamp(36px,10vw,60px)] rounded-tl-[16px] rounded-br-[16px] overflow-hidden shadow-md border border-white mt-10 sm:mt-12 bg-sky-50">
                 <img
                   src="/about/about-treatment-2.jpeg"
                   alt={`${DENTIST_INFO.name} hasta muayenesi`}

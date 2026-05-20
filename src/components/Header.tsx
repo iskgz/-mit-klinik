@@ -95,7 +95,7 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
       }`}
     >
       <div className="w-full">
-        <div className="flex items-center justify-between gap-3">
+        <div className="flex items-center justify-between gap-1.5 sm:gap-3">
           <button
             onClick={() => handleLinkClick("hero")}
             className="flex items-center text-left focus:outline-none cursor-pointer group shrink-0"
@@ -104,7 +104,7 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
             <img
               src="/logo-umit-narin.svg"
               alt="DT. Ümit Narin Diş Hekimi"
-              className="h-9 sm:h-12 w-auto max-w-[180px] sm:max-w-[320px] object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+              className="h-8 sm:h-10 lg:h-12 w-auto max-w-[118px] sm:max-w-[180px] lg:max-w-[320px] object-contain transition-transform duration-300 group-hover:scale-[1.02]"
             />
           </button>
 
@@ -133,22 +133,22 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center space-x-2 lg:space-x-3">
+          <div className="flex items-center space-x-1.5 sm:space-x-2 lg:space-x-3">
             <a
               href={whatsappUrl}
               target="_blank"
               rel="noreferrer"
               aria-label="WhatsApp ile iletişime geç"
               title="WhatsApp ile iletişime geç"
-              className="w-9 h-9 flex items-center justify-center text-slate-700 hover:text-sky-600 transition-colors rounded-full hover:bg-white/30"
+              className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-slate-700 hover:text-sky-600 transition-colors rounded-full hover:bg-white/30"
             >
               <Phone className="w-3.5 h-3.5 text-sky-500 animate-pulse" />
             </a>
             <button
               onClick={() => handleLinkClick("randevu")}
-              className="flex items-center space-x-1.5 bg-sky-500 hover:bg-sky-600 text-white px-4 lg:px-5 py-2.5 rounded-full text-[11px] lg:text-xs font-bold uppercase tracking-widest shadow shadow-sky-500/10 transition-all duration-300 hover:scale-[1.02] cursor-pointer"
+              className="flex items-center space-x-1 sm:space-x-1.5 bg-sky-500 hover:bg-sky-600 text-white px-3 sm:px-4 lg:px-5 py-2 sm:py-2.5 rounded-full text-[9px] sm:text-[11px] lg:text-xs font-bold uppercase tracking-widest shadow shadow-sky-500/10 transition-all duration-300 hover:scale-[1.02] cursor-pointer"
             >
-              <Calendar className="w-3.5 h-3.5" />
+              <Calendar className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
               <span>Randevu Al</span>
             </button>
           </div>
@@ -156,7 +156,7 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
           <div className="flex lg:hidden items-center">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="w-10 h-10 rounded-full bg-white/70 text-slate-700 hover:bg-sky-50 hover:text-sky-700 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-sky-500 shadow-sm"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/70 text-slate-700 hover:bg-sky-50 hover:text-sky-700 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-sky-500 shadow-sm"
               aria-label="Menü"
               aria-expanded={isMobileMenuOpen}
             >

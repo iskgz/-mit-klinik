@@ -56,3 +56,114 @@ input, select, textarea {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Responsive scale guard: keep the visual composition intact as screens narrow. */
+#dentist-root {
+  --fluid-section-y: clamp(3.5rem, 10vw, 6rem);
+  --fluid-section-gap: clamp(1rem, 4vw, 3rem);
+  --fluid-card-pad: clamp(1rem, 3.5vw, 2rem);
+  --fluid-h1: clamp(1.55rem, 7vw, 4.5rem);
+  --fluid-h2: clamp(1.45rem, 5.6vw, 2.5rem);
+  --fluid-h3: clamp(1rem, 3.5vw, 1.75rem);
+  --fluid-body: clamp(0.78rem, 2.5vw, 1rem);
+  --fluid-small: clamp(0.66rem, 2vw, 0.875rem);
+}
+
+#dentist-root *,
+#dentist-root *::before,
+#dentist-root *::after {
+  min-width: 0;
+}
+
+#dentist-root h1,
+#dentist-root h2,
+#dentist-root h3,
+#dentist-root p,
+#dentist-root span,
+#dentist-root a,
+#dentist-root button {
+  overflow-wrap: break-word;
+}
+
+#dentist-root h1,
+#dentist-root h2,
+#dentist-root h3 {
+  text-wrap: balance;
+}
+
+#dentist-root section {
+  padding-top: var(--fluid-section-y);
+  padding-bottom: var(--fluid-section-y);
+}
+
+#dentist-root h1 {
+  font-size: var(--fluid-h1);
+}
+
+#dentist-root h2 {
+  font-size: var(--fluid-h2);
+}
+
+#dentist-root h3 {
+  font-size: var(--fluid-h3);
+}
+
+#dentist-root p,
+#dentist-root li,
+#dentist-root label,
+#dentist-root input,
+#dentist-root select,
+#dentist-root textarea {
+  font-size: var(--fluid-body);
+}
+
+#dentist-root .text-xs,
+#dentist-root .text-sm {
+  font-size: var(--fluid-small);
+}
+
+@media (max-width: 767px) {
+  #dentist-root .grid {
+    gap: var(--fluid-section-gap);
+  }
+
+  #dentist-root .p-6,
+  #dentist-root .p-8,
+  #dentist-root .md\:p-8,
+  #dentist-root .md\:p-10,
+  #dentist-root .md\:p-12 {
+    padding: var(--fluid-card-pad);
+  }
+
+  #dentist-root .rounded-3xl {
+    border-radius: clamp(1rem, 5vw, 1.5rem);
+  }
+
+  #dentist-root img,
+  #dentist-root video,
+  #dentist-root iframe {
+    max-width: 100%;
+  }
+
+  #dentist-root .max-w-\[280px\] {
+    max-width: min(72vw, 17.5rem);
+  }
+
+  #dentist-root .max-w-\[200px\] {
+    max-width: min(52vw, 12.5rem);
+  }
+
+  #dentist-root .w-96,
+  #dentist-root .h-96 {
+    width: clamp(12rem, 60vw, 24rem);
+    height: clamp(12rem, 60vw, 24rem);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1180px) {
+  #dentist-root {
+    --fluid-h1: clamp(3.25rem, 7.5vw, 4.5rem);
+    --fluid-h2: clamp(2rem, 4.8vw, 2.75rem);
+    --fluid-section-y: clamp(4.5rem, 8vw, 6rem);
+  }
+}
