@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Calendar, Phone } from "lucide-react";
+import { Menu, X, Calendar, Phone, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 interface HeaderProps {
@@ -7,10 +7,67 @@ interface HeaderProps {
   activeSection: string;
 }
 
+const navLinks = [
+  { id: "hakkimda", label: "Hakkımda" },
+  { id: "tedaviler", label: "Hizmetler" },
+  { id: "vakalar", label: "Vaka Analizi" },
+  { id: "klinik", label: "Klinik" },
+  { id: "sertifikalar", label: "Eğitim" },
+  { id: "yorumlar", label: "Yorumlar" },
+  { id: "blog", label: "Blog" },
+  { id: "sss", label: "S.S.S." },
+];
+
+const navDetails: Record<string, { eyebrow: string; description: string; items: string[] }> = {
+  hakkimda: {
+    eyebrow: "Hekim profili",
+    description: "Dt. Ümit Narin'in klinik yaklaşımı, deneyimi ve hasta odaklı tedavi anlayışı.",
+    items: ["Deneyim", "Tedavi yaklaşımı", "Klinik felsefesi"],
+  },
+  tedaviler: {
+    eyebrow: "Tedavi seçenekleri",
+    description: "İmplant, estetik diş hekimliği, kanal tedavisi ve modern gülüş tasarımı hizmetleri.",
+    items: ["İmplant", "Gülüş tasarımı", "Diş beyazlatma"],
+  },
+  vakalar: {
+    eyebrow: "Örnek çalışmalar",
+    description: "Tedavi planlama sürecini ve klinik sonuçları daha anlaşılır hale getiren vaka sunumları.",
+    items: ["Öncesi-sonrası", "Tedavi analizi", "Planlama detayları"],
+  },
+  klinik: {
+    eyebrow: "Klinik ortamı",
+    description: "Hijyen, konfor ve dijital diş hekimliği odağında hazırlanmış modern klinik alanı.",
+    items: ["Klinik galeri", "Konum", "Çalışma saatleri"],
+  },
+  sertifikalar: {
+    eyebrow: "Eğitim ve yetkinlik",
+    description: "Mesleki eğitimler, sertifikalar ve uzmanlık gelişimini gösteren bölüm.",
+    items: ["Sertifikalar", "Eğitimler", "Mesleki gelişim"],
+  },
+  yorumlar: {
+    eyebrow: "Hasta deneyimleri",
+    description: "Klinik deneyimini paylaşan hasta yorumları ve memnuniyet değerlendirmeleri.",
+    items: ["Yorumlar", "Memnuniyet", "Deneyimler"],
+  },
+  blog: {
+    eyebrow: "Bilgilendirici içerikler",
+    description: "Ağız ve diş sağlığı hakkında kısa, anlaşılır ve güvenilir bilgilendirme yazıları.",
+    items: ["Bakım önerileri", "Tedavi rehberleri", "Sık merak edilenler"],
+  },
+  sss: {
+    eyebrow: "Hızlı cevaplar",
+    description: "Randevu, tedavi süreci ve klinik hizmetleri hakkında sık sorulan sorular.",
+    items: ["Randevu süreci", "Acil durumlar", "Tedavi soruları"],
+  },
+};
+
 export default function Header({ onNavigate, activeSection }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [openNavId, setOpenNavId] = useState<string | null>(null);
   const whatsappUrl = "https://wa.me/905464309708";
+  const openNav = openNavId ? navLinks.find((link) => link.id === openNavId) : null;
+  const openNavDetail = openNavId ? navDetails[openNavId] : null;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,25 +78,16 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
-    { id: "hakkimda", label: "Hakkımda" },
-    { id: "tedaviler", label: "Hizmetler" },
-    { id: "vakalar", label: "Vaka Analizi" },
-    { id: "klinik", label: "Klinik" },
-    { id: "sertifikalar", label: "Eğitim" },
-    { id: "yorumlar", label: "Yorumlar" },
-    { id: "blog", label: "Blog" },
-    { id: "sss", label: "S.S.S." },
-  ];
-
   const handleLinkClick = (id: string) => {
     setIsMobileMenuOpen(false);
+    setOpenNavId(null);
     onNavigate(id);
   };
 
   return (
     <header
       id="main-header"
+      onMouseLeave={() => setOpenNavId(null)}
       className={`fixed top-4 left-4 right-4 z-50 transition-all duration-300 rounded-full ${
         isScrolled
           ? "bg-white/80 backdrop-blur-md shadow-md border border-white/50 py-2 px-4 sm:px-6 max-w-6xl mx-auto"
@@ -64,15 +112,17 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
             {navLinks.map((link) => (
               <button
                 key={link.id}
+                onMouseEnter={() => setOpenNavId(link.id)}
+                onFocus={() => setOpenNavId(link.id)}
                 onClick={() => handleLinkClick(link.id)}
                 className={`relative px-3.5 py-1.5 text-xs font-bold uppercase tracking-widest transition-colors duration-200 cursor-pointer ${
-                  activeSection === link.id
+                  activeSection === link.id || openNavId === link.id
                     ? "text-sky-600"
                     : "text-slate-600 hover:text-slate-900"
                 }`}
               >
                 {link.label}
-                {activeSection === link.id && (
+                {(activeSection === link.id || openNavId === link.id) && (
                   <motion.div
                     layoutId="activeIndicator"
                     className="absolute bottom-0 left-2.5 right-2.5 h-0.5 bg-sky-550 rounded-full"
@@ -115,6 +165,47 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
           </div>
         </div>
       </div>
+
+      <AnimatePresence>
+        {openNav && openNavDetail && (
+          <motion.div
+            initial={{ opacity: 0, y: -6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -6 }}
+            transition={{ duration: 0.18 }}
+            className="hidden lg:block absolute left-6 right-6 top-full mt-3 rounded-3xl bg-white/95 backdrop-blur-md border border-sky-100 shadow-xl overflow-hidden"
+          >
+            <div className="grid grid-cols-[1fr_auto] gap-8 p-6">
+              <div>
+                <span className="text-[10px] font-extrabold tracking-widest uppercase text-sky-600">
+                  {openNavDetail.eyebrow}
+                </span>
+                <h3 className="mt-1 text-xl font-bold text-slate-900">{openNav.label}</h3>
+                <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-500">
+                  {openNavDetail.description}
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {openNavDetail.items.map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full bg-sky-50 px-3 py-1 text-xs font-bold text-sky-800"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <button
+                onClick={() => handleLinkClick(openNav.id)}
+                className="self-center inline-flex items-center gap-2 rounded-full bg-sky-600 px-5 py-3 text-xs font-extrabold uppercase tracking-widest text-white shadow-md transition hover:bg-sky-700"
+              >
+                Bölüme Git
+                <ChevronRight className="h-4 w-4" />
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <AnimatePresence>
         {isMobileMenuOpen && (
